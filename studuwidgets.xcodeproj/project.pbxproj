@@ -18,6 +18,7 @@
 		90D803D12800AABC00475B05 /* AnimatableFontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D803D02800AABC00475B05 /* AnimatableFontModifier.swift */; };
 		90D803D32800AAF100475B05 /* WhatsNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D803D22800AAF100475B05 /* WhatsNew.swift */; };
 		90D803D52800AB0E00475B05 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D803D42800AB0E00475B05 /* Styles.swift */; };
+		90D803D72800ABD200475B05 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D803D62800ABD200475B05 /* AccountView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		90D803D02800AABC00475B05 /* AnimatableFontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableFontModifier.swift; sourceTree = "<group>"; };
 		90D803D22800AAF100475B05 /* WhatsNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNew.swift; sourceTree = "<group>"; };
 		90D803D42800AB0E00475B05 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
+		90D803D62800ABD200475B05 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				90D803C32800A63600475B05 /* HomeView.swift */,
+				90D803D62800ABD200475B05 /* AccountView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				90D803D52800AB0E00475B05 /* Styles.swift in Sources */,
 				90D803C42800A63600475B05 /* HomeView.swift in Sources */,
 				90D803CD2800AA5B00475B05 /* PreferenceKeys.swift in Sources */,
+				90D803D72800ABD200475B05 /* AccountView.swift in Sources */,
 				90D803C92800A6A700475B05 /* ContentModel.swift in Sources */,
 				90D803D12800AABC00475B05 /* AnimatableFontModifier.swift in Sources */,
 			);
