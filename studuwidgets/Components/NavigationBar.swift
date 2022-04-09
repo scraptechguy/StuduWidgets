@@ -27,7 +27,7 @@ struct NavigationBar: View {
             
             HStack {
                 Button(action: {
-                        //model.showingAccountView = true
+                        model.showingAccountView = true
                     }, label: {
                         Image(systemName: "person.circle")
                             .foregroundColor(.primary)
@@ -38,7 +38,7 @@ struct NavigationBar: View {
                             .background(.ultraThinMaterial, in:
                                 RoundedRectangle(cornerRadius: 18, style: .continuous)
                             )
-                    })//.sheet(isPresented: $model.showingAccountView) {AccountView()}
+                    }).sheet(isPresented: $model.showingAccountView) {AccountView()}
             }.frame(maxWidth: .infinity, alignment: .trailing)
                 .padding(.trailing, 20)
                 .padding(.top, 20)
