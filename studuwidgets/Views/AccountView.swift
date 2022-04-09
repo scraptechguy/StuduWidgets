@@ -8,13 +8,141 @@
 import SwiftUI
 
 struct AccountView: View {
+    @EnvironmentObject var model: ContentModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            NavigationView {
+                List {
+                    Section {
+                        VStack {
+                            Image(systemName: "person.crop.circle.fill.badge.checkmark")
+                                .symbolVariant(.circle.fill)
+                                .symbolRenderingMode(.palette)
+                                .foregroundStyle(Color("AccentColor"), Color("AccentColor"))
+                                .padding()
+                                .background(Circle().fill(.ultraThinMaterial))
+                            
+                            Text("Rostislav Troníček")
+                                .font(.title.weight(.semibold))
+                            
+                            Text("Bakaláři.cz")
+                                .font(.footnote)
+                                .foregroundColor(.secondary)
+                        }.frame(maxWidth: .infinity)
+                            .background(AnimatedBlobView().frame(width: 400, height: 414).offset(x: 200, y: 0).scaleEffect(1))
+                            .padding()
+                        
+                        NavigationLink(destination: WhatsNew()) {
+                            Text("Add account")
+                        }
+                    }
+                    
+                    Section {
+                        Toggle(isOn: $model.isLiteMode) {
+                            Label("Lite Mode", systemImage: model.isLiteMode ? "hare" : "tortoise")
+                        }
+                    }.foregroundColor(.primary)
+                    
+                    Section {
+                        NavigationLink(destination: WhatsNew()) {
+                            Label("Feedback", systemImage: "person")
+                        }
+                        
+                        NavigationLink(destination: WhatsNew()) {
+                            Label("How does it work?", systemImage: "lightbulb")
+                        }
+                        
+                        NavigationLink(destination: WhatsNew()) {
+                            Label("Help", systemImage: "questionmark")
+                        }
+                    }.foregroundColor(.primary)
+                    
+                    Section {
+                        Link(destination: URL(string: "https://youtu.be/dQw4w9WgXcQ")!) {
+                            HStack {
+                                Label("Website", systemImage: "sun.min")
+                                
+                                Spacer()
+                                
+                                Image(systemName: "link")
+                                    .font(.footnote)
+                                    .foregroundColor(.secondary)
+                            }
+                        }.swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                            Button(action: {
+                                    UIPasteboard.general.string = "https://youtu.be/dQw4w9WgXcQ"
+                                }, label: {
+                                    Label("Copy to clipboard", systemImage: "rectangle.on.rectangle")
+                            })
+                        }
+                        
+                        Link(destination: URL(string: "https://github.com/filiptronicek/StuduWidgets")!) {
+                            HStack {
+                                Label("Github", systemImage: "cloud")
+                                
+                                Spacer()
+                                
+                                Image(systemName: "link")
+                                    .font(.footnote)
+                                    .foregroundColor(.secondary)
+                            }
+                        }.swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                            Button(action: {
+                                    UIPasteboard.general.string = "https://github.com/filiptronicek/StuduWidgets"
+                                }, label: {
+                                    Label("Copy to clipboard", systemImage: "rectangle.on.rectangle")
+                            })
+                        }
+                    }.foregroundColor(.primary)
+                    
+                    Section {
+                        Label("Version 1.0", systemImage: "server.rack")
+                            .background(
+                                Image("Blob2")
+                            )
+                        
+                        Text("Made with Ɛ> by Fífa and Rosťa")
+                            .font(.footnote)
+                            .foregroundColor(.secondary)
+                    }.foregroundColor(.secondary)
+                }.listStyle(.insetGrouped)
+                    .navigationTitle("Account")
+                    .refreshable {
+                        print("Screen refreshed")
+                    }
+            }
+            
+            VStack {
+                HStack {
+                    Spacer()
+                    
+                    Button(action: {
+                        model.showingAccountView = false
+                    }, label: {
+                        ZStack {
+                            Circle()
+                                .fill(.ultraThinMaterial)
+                            
+                            Image(systemName: "multiply")
+                                .font(.title3)
+                                .foregroundColor(.secondary)
+                        }.frame(width: 35, height: 35)
+                            .padding(.trailing)
+                    })
+                }
+                
+                Spacer()
+            }
+        }
     }
 }
 
 struct AccountView_Previews: PreviewProvider {
     static var previews: some View {
         AccountView()
+            .preferredColorScheme(.dark)
+            .environmentObject(ContentModel())
     }
 }
+
