@@ -21,13 +21,15 @@ struct HomeView: View {
                 
                 TabView {
                     TimetableItem()
+                        .padding(.vertical)
                         .onTapGesture {
-                            model.showingTimetable = true
+                            model.showingTimetableSheet = true
                         }
                     
                     LunchItem()
+                        .padding(.vertical)
                         .onTapGesture {
-                            model.showingLunch = true
+                            model.showingLunchSheet = true
                         }
                 }.tabViewStyle(.page(indexDisplayMode: .never))
                     .frame(height: 500)
