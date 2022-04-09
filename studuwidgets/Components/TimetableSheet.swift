@@ -88,6 +88,14 @@ struct TimetableSheet: View {
                             Slider(value: $rotation, in: 0...360)
                                 .padding(.horizontal)
                         }
+                        
+                        Button(action: {
+                                color = 0
+                                rotation = 0
+                            }, label: {
+                                Text("Reset to defaults")
+                                    .font(.footnote.weight(.bold))
+                        })
                     }
                 }
             }
