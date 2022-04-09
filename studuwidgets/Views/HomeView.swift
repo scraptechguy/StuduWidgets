@@ -20,7 +20,15 @@ struct HomeView: View {
                 scrollDetection
                 
                 TabView {
-
+                    TimetableItem()
+                        .onTapGesture {
+                            model.showingTimetable = true
+                        }
+                    
+                    LunchItem()
+                        .onTapGesture {
+                            model.showingLunch = true
+                        }
                 }.tabViewStyle(.page(indexDisplayMode: .never))
                     .frame(height: 500)
                     .background(
