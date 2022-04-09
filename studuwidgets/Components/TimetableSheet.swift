@@ -18,13 +18,77 @@ struct TimetableSheet: View {
             NavigationView {
                 List {
                     Section {
-                        Text("")
+                        VStack {
+                            HStack {
+                                ForEach(model.monday, id: \.self) { subject in
+                                    HStack {
+                                        Text(subject)
+                                            .font(.title3)
+                                            .foregroundColor(Color("Font"))
+                                    }.frame(maxWidth: .infinity)
+                                }
+                            }.padding(.horizontal)
+                                .padding(.vertical, 3)
+                            
+                            Divider()
+                            
+                            HStack {
+                                ForEach(model.tuesday, id: \.self) { subject in
+                                    HStack {
+                                        Text(subject)
+                                            .font(.title3)
+                                            .foregroundColor(Color("Font"))
+                                    }.frame(maxWidth: .infinity)
+                                }
+                            }.padding(.horizontal)
+                                .padding(.vertical, 3)
+                            
+                            Divider()
+                            
+                            HStack {
+                                ForEach(model.wednesday, id: \.self) { subject in
+                                    HStack {
+                                        Text(subject)
+                                            .font(.title3)
+                                            .foregroundColor(Color("Font"))
+                                    }.frame(maxWidth: .infinity)
+                                }
+                            }.padding(.horizontal)
+                                .padding(.vertical, 3)
+                            
+                            Divider()
+                            
+                            HStack {
+                                ForEach(model.thursday, id: \.self) { subject in
+                                    HStack {
+                                        Text(subject)
+                                            .font(.title3)
+                                            .foregroundColor(Color("Font"))
+                                    }.frame(maxWidth: .infinity)
+                                }
+                            }.padding(.horizontal)
+                                .padding(.vertical, 3)
+                            
+                            Divider()
+                            
+                            HStack {
+                                ForEach(model.friday, id: \.self) { subject in
+                                    HStack {
+                                        Text(subject)
+                                            .font(.title3)
+                                            .foregroundColor(Color("Font"))
+                                    }.frame(maxWidth: .infinity)
+                                }
+                            }.padding(.horizontal)
+                                .padding(.vertical, 3)
+                        }
                     }.background(
                         Image("Blob2")
                             .overlay(
                                 .thinMaterial
                             )
                     )
+                    .padding(.vertical)
                     
                     Section {
                         Toggle(isOn: $model.timetableNotifyAlways) {
@@ -97,11 +161,12 @@ struct TimetableSheet: View {
                                     .font(.footnote.weight(.bold))
                         })
                     }
-                }
+                }.listStyle(.insetGrouped)
+                    .navigationTitle("Timetable")
             }
             
             VStack {
-                HStack {
+                HStack() {
                     Button(action: {
                         model.showingTimetableSheet = false
                     }, label: {
@@ -133,7 +198,7 @@ struct TimetableSheet: View {
 struct TimetableSheet_Previews: PreviewProvider {
     static var previews: some View {
         TimetableSheet()
-            .preferredColorScheme(.dark)
+            .preferredColorScheme(.light)
             .environmentObject(ContentModel())
     }
 }

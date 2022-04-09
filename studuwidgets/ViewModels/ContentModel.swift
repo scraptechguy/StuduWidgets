@@ -23,4 +23,10 @@ class ContentModel: ObservableObject {
     
     @AppStorage("lunchColor") var lunchColor: Double = 0
     @AppStorage("lunchRotation") var lunchRotation: Double = 180
+    
+    @Published var monday: [String] = ["M", "F", "Ch", "Cj", "Aj", "D", "Tv"]
+    @Published var tuesday: [String] = ["M", "F", "Ch", "Cj", "Aj", "D", "Tv"]
+    @Published var wednesday: [String] = ["M", "F", "Ch", "Cj", "Aj", "D", "Tv"]
+    @Published var thursday: [String] = ["M", "F", "Ch", "Cj", "Aj", "D", "Tv"]
+    @Published var friday: [String] = ["M", "F", "Ch", "Cj", "Aj", "D", "Tv"]
 }
