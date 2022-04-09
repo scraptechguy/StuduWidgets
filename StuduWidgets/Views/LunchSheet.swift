@@ -19,13 +19,74 @@ struct LunchSheet: View {
             NavigationView {
                 List {
                     Section {
-                        Text("")
-                    }.background(
-                        Image("Blob2")
-                            .overlay(
-                                .thinMaterial
-                            )
-                    )
+                        VStack(spacing: 18.0) {
+                            HStack {
+                                Text("Mon")
+                                    .foregroundColor(Color("Font"))
+                                
+                                Divider()
+                                
+                                Text("Kuřecí řízek s bramborovou kaší a zelným salátem")
+                                    .font(.footnote)
+                                    .foregroundColor(.secondary)
+                                    .lineLimit(1)
+                            }
+                            
+                            HStack {
+                                Text("Tue")
+                                    .foregroundColor(Color("Font"))
+                                
+                                Divider()
+                                
+                                Text("Kuřecí řízek s bramborovou kaší a zelným salátem")
+                                    .font(.footnote)
+                                    .foregroundColor(.secondary)
+                                    .lineLimit(1)
+                            }
+                            
+                            HStack {
+                                Text("Wed")
+                                    .foregroundColor(Color("Font"))
+                                
+                                Divider()
+                                
+                                Text("Kuřecí řízek s bramborovou kaší a zelným salátem")
+                                    .font(.footnote)
+                                    .foregroundColor(.secondary)
+                                    .lineLimit(1)
+                            }
+                            
+                            HStack {
+                                Text("Thu")
+                                    .foregroundColor(Color("Font"))
+                                
+                                Divider()
+                                
+                                Text("Kuřecí řízek s bramborovou kaší a zelným salátem")
+                                    .font(.footnote)
+                                    .foregroundColor(.secondary)
+                                    .lineLimit(1)
+                            }
+                            
+                            HStack {
+                                Text("Fri")
+                                    .foregroundColor(Color("Font"))
+                                
+                                Divider()
+                                
+                                Text("Kuřecí řízek s bramborovou kaší a zelným salátem")
+                                    .font(.footnote)
+                                    .foregroundColor(.secondary)
+                                    .lineLimit(1)
+                            }
+                        }.background(
+                            Image("Blob2")
+                                .overlay(
+                                    .thinMaterial
+                                )
+                        )
+                        .padding(.vertical)
+                    }
                     
                     Section {
                         Toggle(isOn: $notify) {
