@@ -11,6 +11,8 @@ import SwiftUI
 class ContentModel: ObservableObject {
     // MARK: State vars
     
+    @AppStorage("isLiteMode") var isLiteMode = true
+    @Published var showingAccountView: Bool = false
     @Published var showingTimetableSheet: Bool = false
     @Published var showingLunchSheet: Bool = false
     
