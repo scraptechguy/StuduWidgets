@@ -102,6 +102,8 @@
 			children = (
 				90D803C32800A63600475B05 /* HomeView.swift */,
 				90D803D62800ABD200475B05 /* AccountView.swift */,
+				90D803E028017E8400475B05 /* TimetableSheet.swift */,
+				90D803E228017E8A00475B05 /* LunchSheet.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -122,8 +124,6 @@
 				90D803E4280180F000475B05 /* AnimatedBlobView.swift */,
 				90D803DC2801796C00475B05 /* TimetableItem.swift */,
 				90D803DE2801797500475B05 /* LunchItem.swift */,
-				90D803E028017E8400475B05 /* TimetableSheet.swift */,
-				90D803E228017E8A00475B05 /* LunchSheet.swift */,
 				90D803D22800AAF100475B05 /* WhatsNew.swift */,
 			);
 			path = Components;
