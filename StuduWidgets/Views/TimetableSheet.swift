@@ -13,12 +13,13 @@ struct TimetableSheet: View {
     @State var notify: Bool = ContentModel().timetableNotify
     @State var color: Double = ContentModel().timetableColor
     @State var rotation: Double = ContentModel().timetableRotation
+    @State var message: String = "Timetable data are up to date!"
     
     var body: some View {
         ZStack {
             NavigationView {
                 List {
-                    Section {
+                    Section(footer: Text(message).lineLimit(2)) {
                         VStack {
                             HStack {
                                 ForEach(model.monday, id: \.self) { subject in
@@ -82,14 +83,14 @@ struct TimetableSheet: View {
                                 }
                             }.padding(.horizontal)
                                 .padding(.vertical, 3)
-                        }
-                    }.background(
-                        Image("Blob2")
-                            .overlay(
-                                .thinMaterial
-                            )
-                    )
-                    .padding(.vertical)
+                        }.background(
+                            Image("Blob2")
+                                .overlay(
+                                    .thinMaterial
+                                )
+                        )
+                        .padding(.vertical)
+                    }
                     
                     Section(footer: Text("Sends a notification each morning informing you about your day").foregroundColor(.secondary).lineLimit(3)) {
                         Toggle(isOn: $notify) {
@@ -164,6 +165,9 @@ struct TimetableSheet: View {
                     }
                 }.listStyle(.insetGrouped)
                     .navigationTitle("Timetable")
+                    .refreshable {
+                        fakeUpdate()
+                    }
             }
             
             VStack {
@@ -193,6 +197,14 @@ struct TimetableSheet: View {
                 
                 Spacer()
             }
+        }
+    }
+    
+    func fakeUpdate() {
+        message = "Updating..."
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            message = "Timetable data are up to date!"
         }
     }
 }
