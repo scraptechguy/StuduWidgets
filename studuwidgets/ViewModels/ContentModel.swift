@@ -12,6 +12,7 @@ class ContentModel: ObservableObject {
     // MARK: State vars
     
     @AppStorage("isLiteMode") var isLiteMode = true
+    @AppStorage("notifyAlways") var notifyAlways = false
     @Published var showingAccountView: Bool = false
     @Published var showingTimetableSheet: Bool = false
     @Published var showingLunchSheet: Bool = false
