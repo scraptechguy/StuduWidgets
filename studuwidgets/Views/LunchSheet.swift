@@ -71,8 +71,6 @@ struct LunchSheet: View {
                             .padding(.vertical)
                             .padding(.bottom)
                         
-                        Divider()
-                        
                         HStack {
                             Text("Color")
                                 .font(.footnote)
