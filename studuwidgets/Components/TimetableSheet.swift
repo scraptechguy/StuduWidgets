@@ -27,8 +27,8 @@ struct TimetableSheet: View {
                     )
                     
                     Section {
-                        Toggle(isOn: $model.notifyAlways) {
-                            Label("Notify allways", systemImage: model.notifyAlways ? "checkmark.bubble.fill" : "checkmark.bubble")
+                        Toggle(isOn: $model.timetableNotifyAlways) {
+                            Label("Notify allways", systemImage: model.timetableNotifyAlways ? "checkmark.bubble.fill" : "checkmark.bubble")
                         }
                     }.foregroundColor(.primary)
                     

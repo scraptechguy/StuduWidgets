@@ -60,12 +60,13 @@ struct LunchItem: View {
                             .frame(maxWidth: .infinity)
                             .background(
                                 Image("Blob3")
-                                    .resizable()
-                                    .frame(width: 300, height: 200)
+                                    .scaleEffect(0.5)
                                     .overlay(
                                         Color.clear
                                             .background(.thinMaterial)
                                     )
+                                    .hueRotation(Angle(degrees: model.lunchColor))
+                                    .rotationEffect(Angle(degrees: model.timetableRotation))
                             )
                         
                         Text("Kuřecí řízek s bramborovou kaší a zelným salátem")
