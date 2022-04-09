@@ -10,6 +10,7 @@ import SwiftUI
 struct TimetableSheet: View {
     @EnvironmentObject var model: ContentModel
     
+    @State var notify: Bool = ContentModel().timetableNotify
     @State var color: Double = ContentModel().timetableColor
     @State var rotation: Double = ContentModel().timetableRotation
     
@@ -90,13 +91,13 @@ struct TimetableSheet: View {
                     )
                     .padding(.vertical)
                     
-                    Section {
-                        Toggle(isOn: $model.timetableNotifyAlways) {
-                            Label("Notify allways", systemImage: model.timetableNotifyAlways ? "checkmark.bubble.fill" : "checkmark.bubble")
+                    Section(footer: Text("Sends a notification each morning informing you about your day").foregroundColor(.secondary).lineLimit(3)) {
+                        Toggle(isOn: $notify) {
+                            Label("Notify each morning", systemImage: notify ? "checkmark.bubble.fill" : "checkmark.bubble")
                         }
                     }.foregroundColor(.primary)
                     
-                    Section {
+                    Section(header: Text("Customization")) {
                         ZStack {
                             Rectangle()
                                 .fill(.thinMaterial)
@@ -180,6 +181,7 @@ struct TimetableSheet: View {
                     Button(action: {
                         model.showingTimetableSheet = false
                         
+                        model.timetableNotify = notify
                         model.timetableColor = color
                         model.timetableRotation = rotation
                     }, label: {

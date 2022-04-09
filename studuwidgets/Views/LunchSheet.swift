@@ -10,6 +10,7 @@ import SwiftUI
 struct LunchSheet: View {
     @EnvironmentObject var model: ContentModel
     
+    @State var notify: Bool = ContentModel().lunchNotify
     @State var color: Double = ContentModel().lunchColor
     @State var rotation: Double = ContentModel().lunchRotation
     
@@ -27,12 +28,12 @@ struct LunchSheet: View {
                     )
                     
                     Section {
-                        Toggle(isOn: $model.lunchNotifyAlways) {
-                            Label("Notify allways", systemImage: model.lunchNotifyAlways ? "checkmark.bubble.fill" : "checkmark.bubble")
+                        Toggle(isOn: $notify) {
+                            Label("Notify each morning", systemImage: notify ? "checkmark.bubble.fill" : "checkmark.bubble")
                         }
                     }.foregroundColor(.primary)
                     
-                    Section {
+                    Section(header: Text("Customization")) {
                         ZStack {
                             VStack(spacing: 8.0) {
                                 Text("Monday")
@@ -70,6 +71,8 @@ struct LunchSheet: View {
                             .padding(.vertical)
                             .padding(.bottom)
                         
+                        Divider()
+                        
                         HStack {
                             Text("Color")
                                 .font(.footnote)
@@ -96,7 +99,8 @@ struct LunchSheet: View {
                                     .font(.footnote.weight(.bold))
                         })
                     }
-                }
+                }.listStyle(.insetGrouped)
+                    .navigationTitle("Lunches")
             }
             
             VStack {
@@ -114,6 +118,7 @@ struct LunchSheet: View {
                     Button(action: {
                         model.showingLunchSheet = false
                         
+                        model.lunchNotify = notify
                         model.lunchColor = color
                         model.lunchRotation = rotation
                     }, label: {
