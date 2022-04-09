@@ -34,6 +34,8 @@ struct HomeView: View {
                     .background(
                         Image("Blob2").offset(x: 10, y: -80)
                     )
+                    .sheet(isPresented: {$model.showingTimetableSheet}()) {TimetableSheet()}
+                    .sheet(isPresented: {$model.showingLunchSheet}()) {LunchSheet()}
                 
                 Text("What's new".uppercased())
                     .sectionTitleModifier()
