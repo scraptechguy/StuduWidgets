@@ -140,7 +140,7 @@ struct TimetableSheet: View {
                                     RoundedRectangle(cornerRadius: 30, style: .continuous)
                                 )
                                 .padding(.vertical)
-                                .padding(.bottom)
+                                .padding(.vertical)
                             
                             Spacer()
                         }
@@ -149,6 +149,7 @@ struct TimetableSheet: View {
                             Text("Color")
                                 .font(.footnote)
                                 .foregroundColor(.secondary)
+                                .frame(width: 60)
                             
                             Slider(value: $color, in: 0...180)
                                 .padding(.horizontal)
@@ -158,6 +159,7 @@ struct TimetableSheet: View {
                             Text("Rotation")
                                 .font(.footnote)
                                 .foregroundColor(.secondary)
+                                .frame(width: 60)
                             
                             Slider(value: $rotation, in: 0...360)
                                 .padding(.horizontal)

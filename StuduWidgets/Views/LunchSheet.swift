@@ -141,7 +141,7 @@ struct LunchSheet: View {
                                     RoundedRectangle(cornerRadius: 30, style: .continuous)
                                 )
                                 .padding(.vertical)
-                                .padding(.bottom)
+                                .padding(.vertical)
                             
                             Spacer()
                         }
@@ -150,6 +150,7 @@ struct LunchSheet: View {
                             Text("Color")
                                 .font(.footnote)
                                 .foregroundColor(.secondary)
+                                .frame(width: 60)
                             
                             Slider(value: $color, in: 0...180)
                                 .padding(.horizontal)
@@ -159,6 +160,7 @@ struct LunchSheet: View {
                             Text("Rotation")
                                 .font(.footnote)
                                 .foregroundColor(.secondary)
+                                .frame(width: 60)
                             
                             Slider(value: $rotation, in: 0...360)
                                 .padding(.horizontal)
