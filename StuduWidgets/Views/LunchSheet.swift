@@ -19,65 +19,72 @@ struct LunchSheet: View {
             NavigationView {
                 List {
                     Section {
-                        VStack(spacing: 18.0) {
-                            HStack {
-                                Text("Mon")
-                                    .foregroundColor(Color("Font"))
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            VStack(spacing: 18.0) {
+                                HStack {
+                                    Text("Mon")
+                                        .foregroundColor(Color("Font"))
+                                        .frame(width: 50)
+                                    
+                                    Divider()
+                                    
+                                    Text("Kuřecí řízek s bramborovou kaší a zelným salátem")
+                                        .font(.footnote)
+                                        .foregroundColor(.secondary)
+                                        .lineLimit(1)
+                                }
                                 
-                                Divider()
+                                HStack {
+                                    Text("Tue")
+                                        .foregroundColor(Color("Font"))
+                                        .frame(width: 50)
+                                    
+                                    Divider()
+                                    
+                                    Text("Kuřecí řízek s bramborovou kaší a zelným salátem")
+                                        .font(.footnote)
+                                        .foregroundColor(.secondary)
+                                        .lineLimit(1)
+                                }
                                 
-                                Text("Kuřecí řízek s bramborovou kaší a zelným salátem")
-                                    .font(.footnote)
-                                    .foregroundColor(.secondary)
-                                    .lineLimit(1)
-                            }
-                            
-                            HStack {
-                                Text("Tue")
-                                    .foregroundColor(Color("Font"))
+                                HStack {
+                                    Text("Wed")
+                                        .foregroundColor(Color("Font"))
+                                        .frame(width: 50)
+                                    
+                                    Divider()
+                                    
+                                    Text("Kuřecí řízek s bramborovou kaší a zelným salátem")
+                                        .font(.footnote)
+                                        .foregroundColor(.secondary)
+                                        .lineLimit(1)
+                                }
                                 
-                                Divider()
+                                HStack {
+                                    Text("Thu")
+                                        .foregroundColor(Color("Font"))
+                                        .frame(width: 50)
+                                    
+                                    Divider()
+                                    
+                                    Text("Kuřecí řízek s bramborovou kaší a zelným salátem")
+                                        .font(.footnote)
+                                        .foregroundColor(.secondary)
+                                        .lineLimit(1)
+                                }
                                 
-                                Text("Kuřecí řízek s bramborovou kaší a zelným salátem")
-                                    .font(.footnote)
-                                    .foregroundColor(.secondary)
-                                    .lineLimit(1)
-                            }
-                            
-                            HStack {
-                                Text("Wed")
-                                    .foregroundColor(Color("Font"))
-                                
-                                Divider()
-                                
-                                Text("Kuřecí řízek s bramborovou kaší a zelným salátem")
-                                    .font(.footnote)
-                                    .foregroundColor(.secondary)
-                                    .lineLimit(1)
-                            }
-                            
-                            HStack {
-                                Text("Thu")
-                                    .foregroundColor(Color("Font"))
-                                
-                                Divider()
-                                
-                                Text("Kuřecí řízek s bramborovou kaší a zelným salátem")
-                                    .font(.footnote)
-                                    .foregroundColor(.secondary)
-                                    .lineLimit(1)
-                            }
-                            
-                            HStack {
-                                Text("Fri")
-                                    .foregroundColor(Color("Font"))
-                                
-                                Divider()
-                                
-                                Text("Kuřecí řízek s bramborovou kaší a zelným salátem")
-                                    .font(.footnote)
-                                    .foregroundColor(.secondary)
-                                    .lineLimit(1)
+                                HStack {
+                                    Text("Fri")
+                                        .foregroundColor(Color("Font"))
+                                        .frame(width: 50)
+                                    
+                                    Divider()
+                                    
+                                    Text("Kuřecí řízek s bramborovou kaší a zelným salátem")
+                                        .font(.footnote)
+                                        .foregroundColor(.secondary)
+                                        .lineLimit(1)
+                                }
                             }
                         }.background(
                             Image("Blob2")
