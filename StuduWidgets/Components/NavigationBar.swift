@@ -24,7 +24,7 @@ struct NavigationBar: View {
                 .padding(.leading, 20.0)
                 .padding(.top, 20)
                 .offset(y: hasScrolled ? -4 : 0)
-                .foregroundStyle(.linearGradient(colors: [.primary.opacity(0.5), .primary], startPoint: .bottomLeading, endPoint: .topTrailing))
+                .foregroundStyle(.linearGradient(colors: [.primary, .primary.opacity(0.5)], startPoint: .bottomLeading, endPoint: .topTrailing))
             
             HStack {
                 Button(action: {
