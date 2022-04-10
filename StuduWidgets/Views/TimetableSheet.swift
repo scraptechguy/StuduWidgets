@@ -20,69 +20,71 @@ struct TimetableSheet: View {
             NavigationView {
                 List {
                     Section(footer: Text(message).lineLimit(2)) {
-                        VStack {
-                            HStack {
-                                ForEach(model.monday, id: \.self) { subject in
-                                    HStack {
+                        ScrollView(.horizontal) {
+                            VStack(alignment: .leading) {
+                                HStack {
+                                    ForEach(model.monday, id: \.self) { subject in
                                         Text(subject)
                                             .font(.title3)
                                             .foregroundColor(Color("Font"))
-                                    }.frame(maxWidth: .infinity)
-                                }
-                            }.padding(.horizontal)
-                                .padding(.vertical, 3)
-                            
-                            Divider()
-                            
-                            HStack {
-                                ForEach(model.tuesday, id: \.self) { subject in
-                                    HStack {
+                                            .frame(width: 30)
+                                            .lineLimit(1)
+                                    }
+                                }.padding(.horizontal)
+                                    .padding(.vertical, 3)
+                                
+                                Divider()
+                                
+                                HStack {
+                                    ForEach(model.tuesday, id: \.self) { subject in
                                         Text(subject)
                                             .font(.title3)
                                             .foregroundColor(Color("Font"))
-                                    }.frame(maxWidth: .infinity)
-                                }
-                            }.padding(.horizontal)
-                                .padding(.vertical, 3)
-                            
-                            Divider()
-                            
-                            HStack {
-                                ForEach(model.wednesday, id: \.self) { subject in
-                                    HStack {
+                                            .frame(width: 30)
+                                            .lineLimit(1)
+                                    }
+                                }.padding(.horizontal)
+                                    .padding(.vertical, 3)
+                                
+                                Divider()
+                                
+                                HStack {
+                                    ForEach(model.wednesday, id: \.self) { subject in
                                         Text(subject)
                                             .font(.title3)
                                             .foregroundColor(Color("Font"))
-                                    }.frame(maxWidth: .infinity)
-                                }
-                            }.padding(.horizontal)
-                                .padding(.vertical, 3)
-                            
-                            Divider()
-                            
-                            HStack {
-                                ForEach(model.thursday, id: \.self) { subject in
-                                    HStack {
+                                            .frame(width: 30)
+                                            .lineLimit(1)
+                                    }
+                                }.padding(.horizontal)
+                                    .padding(.vertical, 3)
+                                
+                                Divider()
+                                
+                                HStack {
+                                    ForEach(model.thursday, id: \.self) { subject in
                                         Text(subject)
                                             .font(.title3)
                                             .foregroundColor(Color("Font"))
-                                    }.frame(maxWidth: .infinity)
-                                }
-                            }.padding(.horizontal)
-                                .padding(.vertical, 3)
-                            
-                            Divider()
-                            
-                            HStack {
-                                ForEach(model.friday, id: \.self) { subject in
-                                    HStack {
+                                            .frame(width: 30)
+                                            .lineLimit(1)
+                                    }
+                                }.padding(.horizontal)
+                                    .padding(.vertical, 3)
+                                
+                                Divider()
+                                
+                                HStack {
+                                    ForEach(model.friday, id: \.self) { subject in
                                         Text(subject)
                                             .font(.title3)
                                             .foregroundColor(Color("Font"))
-                                    }.frame(maxWidth: .infinity)
-                                }
-                            }.padding(.horizontal)
-                                .padding(.vertical, 3)
+                                            .frame(width: 30)
+                                            .lineLimit(1)
+                                    }
+                                }.padding(.horizontal)
+                                    .padding(.vertical, 3)
+                            }
                         }.background(
                             Image("Blob2")
                                 .overlay(
