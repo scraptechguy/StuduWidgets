@@ -13,6 +13,8 @@ struct TimetableItem: View {
     var body: some View {
         GeometryReader { proxy in
             VStack(spacing: 8.0) {
+                Spacer()
+                
                 Text("Timetable Widget")
                     .font(.largeTitle)
                     .fontWeight(.bold)
@@ -31,8 +33,6 @@ struct TimetableItem: View {
                     .lineLimit(2)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundColor(.secondary)
-                
-                Spacer()
             }.padding(.all, 20.0)
                 .frame(height: 350.0)
                 .background(
@@ -85,7 +85,7 @@ struct TimetableItem: View {
                         )
                         .padding(.vertical)
                         .padding(.top)
-                        .offset(y: 50)
+                        .offset(y: -70)
                         .offset(x: proxy.frame(in: .global).minX / 2)
                 )
         }

@@ -13,6 +13,8 @@ struct LunchItem: View {
     var body: some View {
         GeometryReader { proxy in
             VStack(alignment: .leading, spacing: 8.0) {
+                Spacer()
+                
                 Text("Lunch Widget")
                     .font(.largeTitle)
                     .fontWeight(.bold)
@@ -29,8 +31,6 @@ struct LunchItem: View {
                     .lineLimit(2)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundColor(.secondary)
-                
-                Spacer()
             }.padding(.all, 20.0)
                 .frame(height: 350.0)
                 .background(
@@ -80,7 +80,7 @@ struct LunchItem: View {
                             RoundedRectangle(cornerRadius: 30, style: .continuous)
                         )
                         .padding(.vertical)
-                        .offset(y: 60)
+                        .offset(y: -70)
                         .offset(x: proxy.frame(in: .global).minX / 2)
                 )
                 // If the image is overlapping: .padding(.vertical, 40)
