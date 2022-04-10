@@ -103,42 +103,48 @@ struct LunchSheet: View {
                     }.foregroundColor(.primary)
                     
                     Section(header: Text("Customization")) {
-                        ZStack {
-                            VStack(spacing: 8.0) {
-                                Text("Monday")
-                                    .font(.title3.weight(.bold))
-                                    .foregroundColor(.secondary)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .padding(5)
-                                    .padding(.leading, 10)
-                                    .background(.ultraThinMaterial)
-                                
-                                Spacer()
-                            }.ignoresSafeArea()
-                                .frame(maxWidth: .infinity)
-                                .background(
-                                    Image("Blob3")
-                                        .scaleEffect(0.5)
-                                        .overlay(
-                                            Color.clear
-                                                .background(.thinMaterial)
-                                        )
-                                        .hueRotation(Angle(degrees: color))
-                                        .rotationEffect(Angle(degrees: rotation))
-                                )
+                        HStack {
+                            Spacer()
                             
-                            Text("Kuřecí řízek s bramborovou kaší a zelným salátem")
-                                .font(.footnote)
-                                .foregroundColor(Color("Font"))
-                                .lineLimit(3)
-                                .multilineTextAlignment(.center)
-                                .padding()
-                        }.frame(width: 150, height: 150)
-                            .mask(
-                                RoundedRectangle(cornerRadius: 30, style: .continuous)
-                            )
-                            .padding(.vertical)
-                            .padding(.bottom)
+                            ZStack {
+                                VStack(spacing: 8.0) {
+                                    Text("Monday")
+                                        .font(.title3.weight(.bold))
+                                        .foregroundColor(.secondary)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                        .padding(5)
+                                        .padding(.leading, 10)
+                                        .background(.ultraThinMaterial)
+                                    
+                                    Spacer()
+                                }.ignoresSafeArea()
+                                    .frame(maxWidth: .infinity)
+                                    .background(
+                                        Image("Blob3")
+                                            .scaleEffect(0.5)
+                                            .overlay(
+                                                Color.clear
+                                                    .background(.thinMaterial)
+                                            )
+                                            .hueRotation(Angle(degrees: color))
+                                            .rotationEffect(Angle(degrees: rotation))
+                                    )
+                                
+                                Text("Kuřecí řízek s bramborovou kaší a zelným salátem")
+                                    .font(.footnote)
+                                    .foregroundColor(Color("Font"))
+                                    .lineLimit(3)
+                                    .multilineTextAlignment(.center)
+                                    .padding()
+                            }.frame(width: 150, height: 150)
+                                .mask(
+                                    RoundedRectangle(cornerRadius: 30, style: .continuous)
+                                )
+                                .padding(.vertical)
+                                .padding(.bottom)
+                            
+                            Spacer()
+                        }
                         
                         HStack {
                             Text("Color")
@@ -147,7 +153,7 @@ struct LunchSheet: View {
                             
                             Slider(value: $color, in: 0...180)
                                 .padding(.horizontal)
-                        }
+                        }.listRowSeparator(.hidden)
                          
                         HStack {
                             Text("Rotation")
@@ -156,15 +162,21 @@ struct LunchSheet: View {
                             
                             Slider(value: $rotation, in: 0...360)
                                 .padding(.horizontal)
-                        }
+                        }.listRowSeparator(.hidden)
                         
-                        Button(action: {
-                                color = 0
-                                rotation = 0
-                            }, label: {
-                                Text("Reset to defaults")
-                                    .font(.footnote.weight(.bold))
-                        })
+                        HStack {
+                            Spacer()
+                            
+                            Button(action: {
+                                    color = 0
+                                    rotation = 0
+                                }, label: {
+                                    Text("Reset to defaults")
+                                        .font(.footnote.weight(.bold))
+                            })
+                            
+                            Spacer()
+                        }.padding(.vertical)
                     }
                 }.listStyle(.insetGrouped)
                     .navigationTitle("Lunches")
