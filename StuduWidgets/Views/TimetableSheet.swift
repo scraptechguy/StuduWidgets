@@ -20,7 +20,7 @@ struct TimetableSheet: View {
             NavigationView {
                 List {
                     Section(footer: Text(message).lineLimit(2)) {
-                        ScrollView(.horizontal) {
+                        ScrollView(.horizontal, showsIndicators: false) {
                             VStack(alignment: .leading) {
                                 HStack {
                                     ForEach(model.monday, id: \.self) { subject in
