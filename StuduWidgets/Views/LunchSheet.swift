@@ -13,12 +13,13 @@ struct LunchSheet: View {
     @State var notify: Bool = ContentModel().lunchNotify
     @State var color: Double = ContentModel().lunchColor
     @State var rotation: Double = ContentModel().lunchRotation
+    @State var message: String = "Lunch data are up to date!"
     
     var body: some View {
         ZStack {
             NavigationView {
                 List {
-                    Section {
+                    Section(footer: Text(message)) {
                         ScrollView(.horizontal, showsIndicators: false) {
                             VStack(spacing: 18.0) {
                                 HStack {
@@ -95,7 +96,7 @@ struct LunchSheet: View {
                         .padding(.vertical)
                     }
                     
-                    Section {
+                    Section(footer: Text("Sends a notification each morning informing you about your day").foregroundColor(.secondary).lineLimit(3)) {
                         Toggle(isOn: $notify) {
                             Label("Notify each morning", systemImage: notify ? "checkmark.bubble.fill" : "checkmark.bubble")
                         }
@@ -167,6 +168,9 @@ struct LunchSheet: View {
                     }
                 }.listStyle(.insetGrouped)
                     .navigationTitle("Lunches")
+                    .refreshable {
+                        fakeUpdate()
+                    }
             }
             
             VStack {
@@ -196,6 +200,14 @@ struct LunchSheet: View {
                 
                 Spacer()
             }
+        }
+    }
+    
+    func fakeUpdate() {
+        message = "Updating..."
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            message = "Lunch data are up to date!"
         }
     }
 }
