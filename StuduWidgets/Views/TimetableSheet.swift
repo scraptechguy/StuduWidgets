@@ -24,11 +24,17 @@ struct TimetableSheet: View {
                             VStack(alignment: .leading) {
                                 HStack {
                                     ForEach(model.monday, id: \.self) { subject in
-                                        Text(subject)
-                                            .font(.title3)
-                                            .foregroundColor(Color("Font"))
-                                            .frame(width: 30)
-                                            .lineLimit(1)
+                                        VStack(spacing: 5) {
+                                            Text(subject)
+                                                .font(.title2)
+                                                .foregroundColor(Color("Font"))
+                                                .lineLimit(1)
+                                            
+                                            Text("Ro, 305")
+                                                .font(.system(size: 10))
+                                                .foregroundColor(.secondary)
+                                                .lineLimit(1)
+                                        }.frame(width: 45)
                                     }
                                 }.padding(.horizontal)
                                     .padding(.vertical, 3)
@@ -37,11 +43,17 @@ struct TimetableSheet: View {
                                 
                                 HStack {
                                     ForEach(model.tuesday, id: \.self) { subject in
-                                        Text(subject)
-                                            .font(.title3)
-                                            .foregroundColor(Color("Font"))
-                                            .frame(width: 30)
-                                            .lineLimit(1)
+                                        VStack(spacing: 5) {
+                                            Text(subject)
+                                                .font(.title2)
+                                                .foregroundColor(Color("Font"))
+                                                .lineLimit(1)
+                                            
+                                            Text("Ro, 305")
+                                                .font(.system(size: 10))
+                                                .foregroundColor(.secondary)
+                                                .lineLimit(1)
+                                        }.frame(width: 45)
                                     }
                                 }.padding(.horizontal)
                                     .padding(.vertical, 3)
@@ -50,11 +62,17 @@ struct TimetableSheet: View {
                                 
                                 HStack {
                                     ForEach(model.wednesday, id: \.self) { subject in
-                                        Text(subject)
-                                            .font(.title3)
-                                            .foregroundColor(Color("Font"))
-                                            .frame(width: 30)
-                                            .lineLimit(1)
+                                        VStack(spacing: 5) {
+                                            Text(subject)
+                                                .font(.title2)
+                                                .foregroundColor(Color("Font"))
+                                                .lineLimit(1)
+                                            
+                                            Text("Ro, 305")
+                                                .font(.system(size: 10))
+                                                .foregroundColor(.secondary)
+                                                .lineLimit(1)
+                                        }.frame(width: 45)
                                     }
                                 }.padding(.horizontal)
                                     .padding(.vertical, 3)
@@ -63,11 +81,17 @@ struct TimetableSheet: View {
                                 
                                 HStack {
                                     ForEach(model.thursday, id: \.self) { subject in
-                                        Text(subject)
-                                            .font(.title3)
-                                            .foregroundColor(Color("Font"))
-                                            .frame(width: 30)
-                                            .lineLimit(1)
+                                        VStack(spacing: 5) {
+                                            Text(subject)
+                                                .font(.title2)
+                                                .foregroundColor(Color("Font"))
+                                                .lineLimit(1)
+                                            
+                                            Text("Ro, 305")
+                                                .font(.system(size: 10))
+                                                .foregroundColor(.secondary)
+                                                .lineLimit(1)
+                                        }.frame(width: 45)
                                     }
                                 }.padding(.horizontal)
                                     .padding(.vertical, 3)
@@ -76,11 +100,17 @@ struct TimetableSheet: View {
                                 
                                 HStack {
                                     ForEach(model.friday, id: \.self) { subject in
-                                        Text(subject)
-                                            .font(.title3)
-                                            .foregroundColor(Color("Font"))
-                                            .frame(width: 30)
-                                            .lineLimit(1)
+                                        VStack(spacing: 5) {
+                                            Text(subject)
+                                                .font(.title2)
+                                                .foregroundColor(Color("Font"))
+                                                .lineLimit(1)
+                                            
+                                            Text("Ro, 305")
+                                                .font(.system(size: 10))
+                                                .foregroundColor(.secondary)
+                                                .lineLimit(1)
+                                        }.frame(width: 45)
                                     }
                                 }.padding(.horizontal)
                                     .padding(.vertical, 3)
@@ -90,6 +120,7 @@ struct TimetableSheet: View {
                                 .overlay(
                                     .thinMaterial
                                 )
+                                .scaleEffect(1.3)
                         )
                         .padding(.vertical)
                     }
