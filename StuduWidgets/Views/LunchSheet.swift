@@ -170,8 +170,10 @@ struct LunchSheet: View {
                             Spacer()
                             
                             Button(action: {
-                                    color = 0
-                                    rotation = 0
+                                    withAnimation {
+                                        color = 0
+                                        rotation = 0
+                                    }
                                 }, label: {
                                     Text("Reset to defaults")
                                         .font(.footnote.weight(.bold))
