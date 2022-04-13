@@ -108,9 +108,6 @@ struct AccountView: View {
                     }.foregroundColor(.secondary)
                 }.listStyle(.insetGrouped)
                     .navigationTitle("Account")
-                    .refreshable {
-                        print("Screen refreshed")
-                    }
             }
             
             VStack {
