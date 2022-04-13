@@ -49,7 +49,7 @@ struct AccountView: View {
                             Label("Feedback", systemImage: "person")
                         }
                         
-                        NavigationLink(destination: WhatsNew()) {
+                        NavigationLink(destination: ColorStylesView()) {
                             Label("How does it work?", systemImage: "lightbulb")
                         }
                         
