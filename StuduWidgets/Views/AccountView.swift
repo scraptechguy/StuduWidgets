@@ -30,7 +30,13 @@ struct AccountView: View {
                                 .font(.footnote)
                                 .foregroundColor(.secondary)
                         }.frame(maxWidth: .infinity)
-                            .background(AnimatedBlobView().frame(width: 400, height: 414).offset(x: 200, y: 0).scaleEffect(1))
+                            .background(
+                                AnimatedBlobView()
+                                    .frame(width: 400, height: 414)
+                                    .offset(x: 200, y: 0)
+                                    .scaleEffect(1)
+                                    .hueRotation(.degrees(model.appColor))
+                            )
                             .padding()
                         
                         NavigationLink(destination: WhatsNew()) {
@@ -38,9 +44,15 @@ struct AccountView: View {
                         }
                     }
                     
-                    Section {
-                        Toggle(isOn: $model.isLiteMode) {
-                            Label("Lite Mode", systemImage: model.isLiteMode ? "hare" : "tortoise")
+                    Section(header: Text("App accent color")) {
+                        HStack {
+                            Image("Blob3")
+                                .resizable()
+                                .frame(width: 30, height: 20)
+                                .hueRotation(.degrees(model.appColor))
+                            
+                            Slider(value: $model.appColor, in: 0...180)
+                                .padding(.horizontal)
                         }
                     }.foregroundColor(.primary)
                     
@@ -100,6 +112,7 @@ struct AccountView: View {
                         Label("Version 1.0", systemImage: "server.rack")
                             .background(
                                 Image("Blob2")
+                                    .hueRotation(.degrees(model.appColor))
                             )
                         
                         Text("Made with Ɛ> by Fífa and Rosťa")

@@ -34,7 +34,9 @@ struct HomeView: View {
                 }.tabViewStyle(.page(indexDisplayMode: .never))
                     .frame(height: 500)
                     .background(
-                        Image("Blob2").offset(x: 10, y: -80)
+                        Image("Blob2")
+                            .offset(x: 10, y: -80)
+                            .hueRotation(.degrees(model.appColor))
                     )
                     .sheet(isPresented: {$model.showingTimetableSheet}()) {TimetableSheet()}
                     .sheet(isPresented: {$model.showingLunchSheet}()) {LunchSheet()}

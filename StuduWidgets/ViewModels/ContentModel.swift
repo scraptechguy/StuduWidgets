@@ -23,6 +23,8 @@ class ContentModel: ObservableObject {
     
     // MARK: App Storage vars
     
+    @AppStorage("appColor") var appColor: Double = 0
+    
     @AppStorage("timetableColor") var timetableColor: Double = 0
     @AppStorage("timetableRotation") var timetableRotation: Double = 180
     

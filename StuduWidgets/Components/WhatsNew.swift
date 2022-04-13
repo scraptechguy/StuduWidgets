@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct WhatsNew: View {
+    @EnvironmentObject var model: ContentModel
+    
     @Namespace var namespace
     @State var show = false
     
@@ -47,13 +49,16 @@ struct WhatsNew: View {
                     .padding(.horizontal, 20.0)
                     .shadow(color: Color("Shadow").opacity(0.3), radius: 10, x: 0, y: 10)
                     .background(
-                        Image("Blob3").offset(x: -20, y: -60)
+                        Image("Blob3")
+                            .hueRotation(.degrees(model.appColor))
                             .matchedGeometryEffect(id: "background", in: namespace)
+                            .offset(x: -20, y: -60)
                     )
                     .overlay(
                         Image("Blob2")
                             .resizable()
                             .frame(width: 200, height: 180)
+                            .hueRotation(.degrees(model.appColor))
                             .matchedGeometryEffect(id: "overlay", in: namespace)
                             .offset(y: 65)
                     )
@@ -96,13 +101,16 @@ struct WhatsNew: View {
                             Image("Blob2")
                                 .resizable()
                                 .frame(width: 200, height: 180)
+                                .hueRotation(.degrees(model.appColor))
                                 .matchedGeometryEffect(id: "overlay", in: namespace)
                                 .offset(y: -150)
                         )
                         .matchedGeometryEffect(id: "vstack", in: namespace)
                 }.background(
-                    Image("Blob3").offset(x: -20, y: -60)
+                    Image("Blob3")
+                        .hueRotation(.degrees(model.appColor))
                         .matchedGeometryEffect(id: "background", in: namespace)
+                        .offset(x: -20, y: -60)
                 )
             }
         }.onTapGesture {
