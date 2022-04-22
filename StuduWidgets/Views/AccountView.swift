@@ -54,14 +54,18 @@ struct AccountView: View {
                             Slider(value: $model.appColor, in: 0...180)
                                 .padding(.horizontal)
                         }
-                    }.foregroundColor(.primary)
+                        
+                        NavigationLink(destination: ColorStylesView()) {
+                            Text("Choose from styles")
+                        }
+                    }
                     
-                    Section {
+                    Section(header: Text("Information").foregroundColor(.secondary)) {
                         NavigationLink(destination: WhatsNew()) {
                             Label("Feedback", systemImage: "person")
                         }
                         
-                        NavigationLink(destination: ColorStylesView()) {
+                        NavigationLink(destination: WhatsNew()) {
                             Label("How does it work?", systemImage: "lightbulb")
                         }
                         
@@ -70,10 +74,11 @@ struct AccountView: View {
                         }
                     }.foregroundColor(.primary)
                     
-                    Section {
+                    Section(header: Text("Links")) {
                         Link(destination: URL(string: "https://youtu.be/dQw4w9WgXcQ")!) {
                             HStack {
                                 Label("Website", systemImage: "sun.min")
+                                    .foregroundColor(.primary)
                                 
                                 Spacer()
                                 
@@ -92,6 +97,7 @@ struct AccountView: View {
                         Link(destination: URL(string: "https://github.com/filiptronicek/StuduWidgets")!) {
                             HStack {
                                 Label("Github", systemImage: "cloud")
+                                    .foregroundColor(.primary)
                                 
                                 Spacer()
                                 
@@ -106,7 +112,7 @@ struct AccountView: View {
                                     Label("Copy to clipboard", systemImage: "rectangle.on.rectangle")
                             })
                         }
-                    }.foregroundColor(.primary)
+                    }
                     
                     Section {
                         Label("Version 1.0", systemImage: "server.rack")
@@ -139,7 +145,7 @@ struct AccountView: View {
                                 .foregroundColor(.secondary)
                         }.frame(width: 35, height: 35)
                             .padding(.trailing)
-                            .padding(.top)
+                            
                     })
                 }
                 

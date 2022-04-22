@@ -12,46 +12,77 @@ struct ColorStylesView: View {
     
     @State var color: Double = 0
     @State var rotation: Double = 0
-    @State var message: String = ""
+    @State var selected: Int = 0
     
     var body: some View {
         NavigationView {
             List {
-                Section(header: Text("Saved colors")) {
+                Section(header: Text("Saved colors").padding(.top, 60)) {
                     if model.savedColors == [""] {
                         Text("Your saved colors will appear here!")
                             .font(.body)
                             .foregroundColor(.secondary)
                     } else {
-                        ForEach(model.savedColors, id: \.self) { item in
-                            HStack {
-                                Image("Blob2")
-                                    .resizable()
-                                    .scaleEffect(2)
-                                    .mask(Circle())
-                                    .frame(width: 50, height: 15)
-                                    .hueRotation(.degrees(Double(item)!))
-                                
-                                Text(item)
-                                    .foregroundColor(.primary)
+                        ForEach(model.savedColors.indices, id: \.self) { i in
+                            Button(action: {
+                                    selected = i
+                                }, label: {
+                                    HStack {
+                                        Image("Blob2")
+                                            .resizable()
+                                            .scaleEffect(2)
+                                            .mask(Circle())
+                                            .frame(width: 50, height: 15)
+                                            .hueRotation(.degrees(Double(model.savedColors[i])!))
+                                        
+                                        Text(model.savedColors[i])
+                                            .foregroundColor(.primary)
+                                        
+                                        Spacer()
+                                        
+                                        if selected == model.savedColors.firstIndex(of: model.savedColors[i]) {
+                                            Image(systemName: "checkmark")
+                                        }
+                                    }
+                            }).swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                                Button(action: {
+                                        let index = model.savedColors.firstIndex(of: model.savedColors[i])
+                                    
+                                        withAnimation {
+                                            model.savedColors.remove(at: index!)
+                                        }
+                                    }, label: {
+                                        Label("Delete item", systemImage: "trash")
+                                            .foregroundColor(.red)
+                                })
                             }
                         }
                     }
                 }
                 
-                Section(header: Text("Create")) {
-                    Text("")
-                        .frame(maxWidth: .infinity)
-                        .background(
-                            Image("Blob3")
-                                .scaleEffect(2)
-                                .overlay(.ultraThinMaterial)
-                                .rotationEffect(Angle(degrees: rotation))
-                                .hueRotation(.degrees(color))
-                        )
-                }
+                Section(header: Text("Create"), footer: Text("").lineLimit(2)) {
+                    HStack {
+                        Spacer()
+                        
+                        Rectangle()
+                            .fill(.thinMaterial)
+                            .background(
+                                //Color(red: 1, green: value / 255, blue: 1)
+                                Image("Blob3")
+                                    .rotationEffect(Angle(degrees: rotation))
+                                    .scaleEffect(0.5)
+                            )
+                            .hueRotation(.degrees(color))
+                            .frame(width: 150, height: 150)
+                            .mask(
+                                RoundedRectangle(cornerRadius: 30, style: .continuous)
+                            )
+                            .padding(.vertical)
+                            .padding(.top)
+                    
+                        Spacer()
+                    }
                 
-                Section(footer: Text(message).lineLimit(2)) {
                     HStack {
                         Text("Color")
                             .font(.footnote)
@@ -89,6 +120,8 @@ struct ColorStylesView: View {
                     }.padding(.vertical)
                 }
             }.listStyle(.insetGrouped)
+                .ignoresSafeArea()
+                .navigationBarHidden(true)
         }
     }
 }
@@ -96,6 +129,7 @@ struct ColorStylesView: View {
 struct ColorStylesView_Previews: PreviewProvider {
     static var previews: some View {
         ColorStylesView()
+            .preferredColorScheme(.dark)
             .environmentObject(ContentModel())
     }
 }
