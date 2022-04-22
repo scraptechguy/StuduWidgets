@@ -163,7 +163,7 @@ struct AccountView: View {
                                 .foregroundColor(.secondary)
                         }.frame(width: 35, height: 35)
                             .padding(.trailing)
-                            .padding(.top)
+                            .padding(.top, 12)
                     })
                 }
                 
