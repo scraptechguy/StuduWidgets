@@ -15,29 +15,47 @@ struct AccountView: View {
             NavigationView {
                 List {
                     Section {
-                        VStack {
-                            Image(systemName: "person.crop.circle.fill.badge.checkmark")
-                                .symbolVariant(.circle.fill)
-                                .symbolRenderingMode(.palette)
-                                .foregroundStyle(Color("AccentColor"), Color("AccentColor"))
+                        Menu {
+                            Button(action: {
+                                    
+                                }, label: {
+                                    Label("Delete", systemImage: "trash")
+                                        .foregroundColor(.red)
+                            })
+                        } label: {
+                            HStack {
+                                Group {
+                                    VStack {
+                                        Text("Rostislav Troníček")
+                                            .font(.title2.weight(.semibold))
+                                            .foregroundColor(.primary)
+                                            .lineLimit(1)
+                                            .padding(.horizontal, 10)
+                                            .frame(maxWidth: .infinity)
+                                        
+                                        Text("Bakaláři.cz")
+                                            .font(.footnote)
+                                            .foregroundColor(.secondary)
+                                            .frame(maxWidth: .infinity)
+                                    }
+                                }.frame(maxWidth: .infinity, alignment: .leading)
+                                
+                                Image(systemName: "person.crop.circle.fill.badge.checkmark")
+                                    .symbolVariant(.circle.fill)
+                                    .symbolRenderingMode(.palette)
+                                    .foregroundStyle(Color("AccentColor"), Color("AccentColor"))
+                                    .padding()
+                                    .background(Circle().fill(.ultraThinMaterial))
+                            }.frame(maxWidth: .infinity)
+                                .background(
+                                    AnimatedBlobView()
+                                        .frame(width: 400, height: 414)
+                                        .offset(x: 200, y: 0)
+                                        .scaleEffect(1)
+                                        .hueRotation(.degrees(model.appColor))
+                                )
                                 .padding()
-                                .background(Circle().fill(.ultraThinMaterial))
-                            
-                            Text("Rostislav Troníček")
-                                .font(.title.weight(.semibold))
-                            
-                            Text("Bakaláři.cz")
-                                .font(.footnote)
-                                .foregroundColor(.secondary)
-                        }.frame(maxWidth: .infinity)
-                            .background(
-                                AnimatedBlobView()
-                                    .frame(width: 400, height: 414)
-                                    .offset(x: 200, y: 0)
-                                    .scaleEffect(1)
-                                    .hueRotation(.degrees(model.appColor))
-                            )
-                            .padding()
+                        }
                         
                         NavigationLink(destination: WhatsNew()) {
                             Text("Add account")
@@ -145,7 +163,7 @@ struct AccountView: View {
                                 .foregroundColor(.secondary)
                         }.frame(width: 35, height: 35)
                             .padding(.trailing)
-                            
+                            .padding(.top)
                     })
                 }
                 

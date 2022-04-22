@@ -17,7 +17,7 @@ struct ColorStylesView: View {
     var body: some View {
         NavigationView {
             List {
-                Section(header: Text("Saved colors").padding(.top, 60)) {
+                Section(header: Text("Saved colors").padding(.top, 50)) {
                     if model.savedColors == [""] {
                         Text("Your saved colors will appear here!")
                             .font(.body)
