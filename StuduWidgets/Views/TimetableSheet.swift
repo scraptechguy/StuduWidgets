@@ -200,10 +200,7 @@ struct TimetableSheet: View {
                             Spacer()
                             
                             Button(action: {
-                                    withAnimation {
-                                        color = 0
-                                        rotation = 0
-                                    }
+                                  1
                                 }, label: {
                                     Text("Reset to defaults")
                                         .font(.footnote.weight(.bold))
@@ -261,7 +258,7 @@ struct TimetableSheet: View {
 struct TimetableSheet_Previews: PreviewProvider {
     static var previews: some View {
         TimetableSheet()
-            .preferredColorScheme(.light)
+            .preferredColorScheme(.dark)
             .environmentObject(ContentModel())
     }
 }

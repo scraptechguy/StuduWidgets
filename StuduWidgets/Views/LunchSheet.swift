@@ -22,69 +22,21 @@ struct LunchSheet: View {
                     Section(footer: Text(message)) {
                         ScrollView(.horizontal, showsIndicators: false) {
                             VStack(spacing: 18.0) {
-                                HStack {
-                                    Text("Mon")
-                                        .foregroundColor(Color("Font"))
-                                        .frame(width: 50)
-                                    
-                                    Divider()
-                                    
-                                    Text("Kuřecí řízek s bramborovou kaší a zelným salátem")
-                                        .font(.footnote)
-                                        .foregroundColor(.secondary)
-                                        .lineLimit(1)
-                                }
-                                
-                                HStack {
-                                    Text("Tue")
-                                        .foregroundColor(Color("Font"))
-                                        .frame(width: 50)
-                                    
-                                    Divider()
-                                    
-                                    Text("Kuřecí řízek s bramborovou kaší a zelným salátem")
-                                        .font(.footnote)
-                                        .foregroundColor(.secondary)
-                                        .lineLimit(1)
-                                }
-                                
-                                HStack {
-                                    Text("Wed")
-                                        .foregroundColor(Color("Font"))
-                                        .frame(width: 50)
-                                    
-                                    Divider()
-                                    
-                                    Text("Kuřecí řízek s bramborovou kaší a zelným salátem")
-                                        .font(.footnote)
-                                        .foregroundColor(.secondary)
-                                        .lineLimit(1)
-                                }
-                                
-                                HStack {
-                                    Text("Thu")
-                                        .foregroundColor(Color("Font"))
-                                        .frame(width: 50)
-                                    
-                                    Divider()
-                                    
-                                    Text("Kuřecí řízek s bramborovou kaší a zelným salátem")
-                                        .font(.footnote)
-                                        .foregroundColor(.secondary)
-                                        .lineLimit(1)
-                                }
-                                
-                                HStack {
-                                    Text("Fri")
-                                        .foregroundColor(Color("Font"))
-                                        .frame(width: 50)
-                                    
-                                    Divider()
-                                    
-                                    Text("Kuřecí řízek s bramborovou kaší a zelným salátem")
-                                        .font(.footnote)
-                                        .foregroundColor(.secondary)
-                                        .lineLimit(1)
+                                ForEach(model.days.indices, id: \.self) { i in
+                                    HStack {
+                                        Text(model.days[i])
+                                            .foregroundColor(Color("Font"))
+                                            .frame(width: 50)
+                                        
+                                        Divider()
+                                        
+                                        Text(model.lunches[i])
+                                            .font(.footnote)
+                                            .foregroundColor(.secondary)
+                                            .lineLimit(1)
+                                        
+                                        Spacer()
+                                    }
                                 }
                             }
                         }.background(
@@ -231,6 +183,7 @@ struct LunchSheet: View {
 struct LunchSheet_Previews: PreviewProvider {
     static var previews: some View {
         LunchSheet()
+            .preferredColorScheme(.dark)
             .environmentObject(ContentModel())
     }
 }

@@ -39,4 +39,9 @@ class ContentModel: ObservableObject {
     @Published var wednesday: [String] = ["F", "Nj", "M", "Cj", "Zsv", "Bi", "Z"]
     @Published var thursday: [String] = ["Tv", "Ivt", "Ivt", "Aj", "Aj", "Z", "Ch"]
     @Published var friday: [String] = ["Bi", "D", "Zsv", "M", "Cj", "Nj"]
+    
+    // MARK: Lunches
+    
+    @Published var days: [String] = ["Mon", "Tue", "Wed", "Thu", "Fri"]
+    @Published var lunches: [String] = ["Pečené kuřecí stehno a la bažant, rýže dlouhozrnná", "Dukátové buchtičky se šodó", "Sekaná pečeně se svíčkovou omáčkou, houskový knedlík", "Milánské špagety sypané sýrem", "Francouzské brambory s uzenou rolkou, zelný salát s mrkví"]
 }

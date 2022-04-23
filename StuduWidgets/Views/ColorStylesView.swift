@@ -28,7 +28,7 @@ struct ColorStylesView: View {
                                     selected = i
                                 }, label: {
                                     HStack {
-                                        Image("Blob2")
+                                        Image("Blob3")
                                             .resizable()
                                             .scaleEffect(2)
                                             .mask(Circle())
@@ -60,7 +60,7 @@ struct ColorStylesView: View {
                     }
                 }
                 
-                Section(header: Text("Create"), footer: Text("").lineLimit(2)) {
+                Section(header: Text("Create styles"), footer: Text("").lineLimit(2)) {
                     HStack {
                         Spacer()
                         
