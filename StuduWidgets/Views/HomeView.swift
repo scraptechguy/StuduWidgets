@@ -80,6 +80,5 @@ struct HomeView_Previews: PreviewProvider {
         HomeView()
             .preferredColorScheme(.dark)
             .environmentObject(ContentModel())
-            .previewInterfaceOrientation(.portrait)
     }
 }

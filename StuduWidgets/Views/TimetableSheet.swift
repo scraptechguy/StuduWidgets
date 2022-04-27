@@ -14,106 +14,135 @@ struct TimetableSheet: View {
     @State var color: Double = ContentModel().timetableColor
     @State var rotation: Double = ContentModel().timetableRotation
     @State var message: String = "Timetable data are up to date!"
+    @State var isSelectedCurrent: Bool = true
     
     var body: some View {
         ZStack {
             NavigationView {
                 List {
                     Section(footer: Text(message).lineLimit(2)) {
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            VStack(alignment: .leading) {
-                                HStack {
-                                    ForEach(model.monday, id: \.self) { subject in
-                                        VStack(spacing: 5) {
-                                            Text(subject)
-                                                .font(.title2)
-                                                .foregroundColor(Color("Font"))
-                                                .lineLimit(1)
-                                            
-                                            Text("Ro, 305")
-                                                .font(.system(size: 10))
-                                                .foregroundColor(.secondary)
-                                                .lineLimit(1)
-                                        }.frame(width: 45)
+                        VStack {
+                            HStack {
+                                Button(action: {
+                                    withAnimation {
+                                        isSelectedCurrent = true
                                     }
-                                }.padding(.horizontal)
-                                    .padding(.vertical, 3)
+                                }, label: {
+                                    Text("Current")
+                                        .foregroundColor(isSelectedCurrent ? .primary : .secondary)
+                                        .padding(.leading)
+                                        .padding(.leading)
+                                })
                                 
-                                Divider()
+                                Spacer()
                                 
-                                HStack {
-                                    ForEach(model.tuesday, id: \.self) { subject in
-                                        VStack(spacing: 5) {
-                                            Text(subject)
-                                                .font(.title2)
-                                                .foregroundColor(Color("Font"))
-                                                .lineLimit(1)
-                                            
-                                            Text("Ro, 305")
-                                                .font(.system(size: 10))
-                                                .foregroundColor(.secondary)
-                                                .lineLimit(1)
-                                        }.frame(width: 45)
+                                Button(action: {
+                                    withAnimation {
+                                        isSelectedCurrent = true
                                     }
-                                }.padding(.horizontal)
-                                    .padding(.vertical, 3)
-                                
-                                Divider()
-                                
-                                HStack {
-                                    ForEach(model.wednesday, id: \.self) { subject in
-                                        VStack(spacing: 5) {
-                                            Text(subject)
-                                                .font(.title2)
-                                                .foregroundColor(Color("Font"))
-                                                .lineLimit(1)
-                                            
-                                            Text("Ro, 305")
-                                                .font(.system(size: 10))
-                                                .foregroundColor(.secondary)
-                                                .lineLimit(1)
-                                        }.frame(width: 45)
-                                    }
-                                }.padding(.horizontal)
-                                    .padding(.vertical, 3)
-                                
-                                Divider()
-                                
-                                HStack {
-                                    ForEach(model.thursday, id: \.self) { subject in
-                                        VStack(spacing: 5) {
-                                            Text(subject)
-                                                .font(.title2)
-                                                .foregroundColor(Color("Font"))
-                                                .lineLimit(1)
-                                            
-                                            Text("Ro, 305")
-                                                .font(.system(size: 10))
-                                                .foregroundColor(.secondary)
-                                                .lineLimit(1)
-                                        }.frame(width: 45)
-                                    }
-                                }.padding(.horizontal)
-                                    .padding(.vertical, 3)
-                                
-                                Divider()
-                                
-                                HStack {
-                                    ForEach(model.friday, id: \.self) { subject in
-                                        VStack(spacing: 5) {
-                                            Text(subject)
-                                                .font(.title2)
-                                                .foregroundColor(Color("Font"))
-                                                .lineLimit(1)
-                                            
-                                            Text("Ro, 305")
-                                                .font(.system(size: 10))
-                                                .foregroundColor(.secondary)
-                                                .lineLimit(1)
-                                        }.frame(width: 45)
-                                    }
-                                }.padding(.horizontal)
-                                    .padding(.vertical, 3)
+                                }, label: {
+                                    Text("Next")
+                                        .foregroundColor(isSelectedCurrent ? .secondary : .primary)
+                                        .padding(.trailing)
+                                        .padding(.trailing)
+                                })
+                            }.padding(.bottom)
+                            
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                VStack(alignment: .leading) {
+                                    HStack {
+                                        ForEach(model.monday, id: \.self) { subject in
+                                            VStack(spacing: 5) {
+                                                Text(subject)
+                                                    .font(.title2)
+                                                    .foregroundColor(Color("Font"))
+                                                    .lineLimit(1)
+                                                
+                                                Text("Ro, 305")
+                                                    .font(.system(size: 10))
+                                                    .foregroundColor(.secondary)
+                                                    .lineLimit(1)
+                                            }.frame(width: 45)
+                                        }
+                                    }.padding(.horizontal)
+                                        .padding(.vertical, 3)
+                                    
+                                    Divider()
+                                    
+                                    HStack {
+                                        ForEach(model.tuesday, id: \.self) { subject in
+                                            VStack(spacing: 5) {
+                                                Text(subject)
+                                                    .font(.title2)
+                                                    .foregroundColor(Color("Font"))
+                                                    .lineLimit(1)
+                                                
+                                                Text("Ro, 305")
+                                                    .font(.system(size: 10))
+                                                    .foregroundColor(.secondary)
+                                                    .lineLimit(1)
+                                            }.frame(width: 45)
+                                        }
+                                    }.padding(.horizontal)
+                                        .padding(.vertical, 3)
+                                    
+                                    Divider()
+                                    
+                                    HStack {
+                                        ForEach(model.wednesday, id: \.self) { subject in
+                                            VStack(spacing: 5) {
+                                                Text(subject)
+                                                    .font(.title2)
+                                                    .foregroundColor(Color("Font"))
+                                                    .lineLimit(1)
+                                                
+                                                Text("Ro, 305")
+                                                    .font(.system(size: 10))
+                                                    .foregroundColor(.secondary)
+                                                    .lineLimit(1)
+                                            }.frame(width: 45)
+                                        }
+                                    }.padding(.horizontal)
+                                        .padding(.vertical, 3)
+                                    
+                                    Divider()
+                                    
+                                    HStack {
+                                        ForEach(model.thursday, id: \.self) { subject in
+                                            VStack(spacing: 5) {
+                                                Text(subject)
+                                                    .font(.title2)
+                                                    .foregroundColor(Color("Font"))
+                                                    .lineLimit(1)
+                                                
+                                                Text("Ro, 305")
+                                                    .font(.system(size: 10))
+                                                    .foregroundColor(.secondary)
+                                                    .lineLimit(1)
+                                            }.frame(width: 45)
+                                        }
+                                    }.padding(.horizontal)
+                                        .padding(.vertical, 3)
+                                    
+                                    Divider()
+                                    
+                                    HStack {
+                                        ForEach(model.friday, id: \.self) { subject in
+                                            VStack(spacing: 5) {
+                                                Text(subject)
+                                                    .font(.title2)
+                                                    .foregroundColor(Color("Font"))
+                                                    .lineLimit(1)
+                                                
+                                                Text("Ro, 305")
+                                                    .font(.system(size: 10))
+                                                    .foregroundColor(.secondary)
+                                                    .lineLimit(1)
+                                            }.frame(width: 45)
+                                        }
+                                    }.padding(.horizontal)
+                                        .padding(.vertical, 3)
+                                }
                             }
                         }.background(
                             Image("Blob2")
@@ -200,7 +229,10 @@ struct TimetableSheet: View {
                             Spacer()
                             
                             Button(action: {
-                                  1
+                                    withAnimation {
+                                        color = 0
+                                        rotation = 0
+                                    }
                                 }, label: {
                                     Text("Reset to defaults")
                                         .font(.footnote.weight(.bold))
