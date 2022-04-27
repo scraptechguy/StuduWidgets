@@ -48,9 +48,7 @@ struct ColorStylesView: View {
                                 Button(action: {
                                         let index = model.savedColors.firstIndex(of: model.savedColors[i])
                                     
-                                        withAnimation {
-                                            model.savedColors.remove(at: index!)
-                                        }
+                                        model.savedColors.remove(at: index!)
                                     }, label: {
                                         Label("Delete item", systemImage: "trash")
                                             .foregroundColor(.red)
