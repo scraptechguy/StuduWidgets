@@ -19,6 +19,8 @@ class ContentModel: ObservableObject {
     @Published var showingLunchSheet: Bool = false
     
     @Published var savedColors: [String] = ["42", "124", "180"]
+    @Published var isFluent: Bool = true
+    @Published var selected: Int = 0
     
     
     // MARK: App Storage vars

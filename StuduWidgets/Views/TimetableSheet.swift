@@ -22,32 +22,6 @@ struct TimetableSheet: View {
                 List {
                     Section(footer: Text(message).lineLimit(2)) {
                         VStack {
-                            HStack {
-                                Button(action: {
-                                    withAnimation {
-                                        isSelectedCurrent = true
-                                    }
-                                }, label: {
-                                    Text("Current")
-                                        .foregroundColor(isSelectedCurrent ? .primary : .secondary)
-                                        .padding(.leading)
-                                        .padding(.leading)
-                                })
-                                
-                                Spacer()
-                                
-                                Button(action: {
-                                    withAnimation {
-                                        isSelectedCurrent = true
-                                    }
-                                }, label: {
-                                    Text("Next")
-                                        .foregroundColor(isSelectedCurrent ? .secondary : .primary)
-                                        .padding(.trailing)
-                                        .padding(.trailing)
-                                })
-                            }.padding(.bottom)
-                            
                             ScrollView(.horizontal, showsIndicators: false) {
                                 VStack(alignment: .leading) {
                                     HStack {
@@ -204,6 +178,12 @@ struct TimetableSheet: View {
                             
                             Spacer()
                         }
+                        
+                        Button(action: {
+                            
+                        }, label: {
+                            
+                        })
                         
                         HStack {
                             Text("Color")

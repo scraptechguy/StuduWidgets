@@ -12,7 +12,6 @@ struct ColorStylesView: View {
     
     @State var color: Double = 0
     @State var rotation: Double = 0
-    @State var selected: Int = 0
     
     var body: some View {
         NavigationView {
@@ -25,7 +24,7 @@ struct ColorStylesView: View {
                     } else {
                         ForEach(model.savedColors.indices, id: \.self) { i in
                             Button(action: {
-                                    selected = i
+                                    model.selected = i
                                 }, label: {
                                     HStack {
                                         Image("Blob3")
@@ -40,7 +39,7 @@ struct ColorStylesView: View {
                                         
                                         Spacer()
                                         
-                                        if selected == model.savedColors.firstIndex(of: model.savedColors[i]) {
+                                        if model.selected == model.savedColors.firstIndex(of: model.savedColors[i]) {
                                             Image(systemName: "checkmark")
                                         }
                                     }
