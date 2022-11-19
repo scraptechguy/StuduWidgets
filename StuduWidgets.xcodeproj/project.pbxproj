@@ -81,8 +81,8 @@
 		9053214E2800A33600C6141E /* StuduWidgets */ = {
 			isa = PBXGroup;
 			children = (
-				9053214F2800A33600C6141E /* studuwidgetsApp.swift */,
 				90D803CA2800A6DC00475B05 /* LaunchScreen.storyboard */,
+				9053214F2800A33600C6141E /* studuwidgetsApp.swift */,
 				90D803C72800A68B00475B05 /* Styles */,
 				90D803C22800A62900475B05 /* Views */,
 				90D803C62800A67C00475B05 /* Components */,
