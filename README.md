@@ -4,6 +4,21 @@ StuduWidgts is an iOS native app built to make student life go smoothly. StuduWi
 
 This is building upon the fact, that most schools in Czechia use two services: Strava.cz for ordering lunches at the school canteen and Bakaláři for managing grades, timetables, absense and more.
 
+<div align="center">
+  <a href="https://github.com/scraptechguy/StuduWidgets/actions">
+    <img src="https://github.com/scraptechguy/StuduWidgets/actions/workflows/ios.yml/badge.svg">
+  </a>
+  <a href="https://github.com/scraptechguy/StuduWidgets/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/scraptechguy/StuduWidgets">
+  </a>
+  <a href="https://github.com/scraptechguy/StuduWidgets/issues">
+    <img src="https://img.shields.io/github/issues/scraptechguy/StuduWidgets">
+  </a>
+  <a href="https://github.com/scraptechguy/StuduWidgets/pulls">
+    <img src="https://img.shields.io/github/issues-pr/scraptechguy/StuduWidgets">
+  </a>
+</div>
+
 ![StuduPreview](https://user-images.githubusercontent.com/75474651/204030271-f39dd13a-3e68-40b3-8718-2b888e8bf4d4.png)
 
 ## StuduWidgets Status 
